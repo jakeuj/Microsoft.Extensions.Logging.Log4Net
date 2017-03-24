@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageId>Microsoft.Extensions.Logging.Log4Net.Jakeuj</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Jakeuj</Authors>
+    <Description>Awesome application logging utility</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2016 (c) Jakeuj Corporation. All rights reserved.</Copyright>
+    <PackageTags>logger logging logs</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp1.1\Microsoft.Extensions.Logging.Log4Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>
