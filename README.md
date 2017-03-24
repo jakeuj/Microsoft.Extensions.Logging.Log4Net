@@ -67,9 +67,10 @@ public class Startup
 
         //  Configure log4net
         env.ConfigureLog4Net(Configuration.GetSection("Log4Net"));
-		// ...
+        // ...
     }
     // ...
+}
 ```
 
 ## 4. Register provider with ILoggerFactory
@@ -83,9 +84,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     loggerFactory.AddConsole();
     loggerFactory.AddDebug();
 
-	// Register Log4Net
+    // Register Log4Net
     loggerFactory.AddLog4Net(Configuration.GetSection("Log4Net"));
     // ...
+}
 ```
 
 ## 5. Done
@@ -95,14 +97,14 @@ Now you will be able to use the Microsoft Logging framework throughout your appl
 ```csharp
 public class HomeController : Controller
 {
-	private readonly ILogger _logger;
-	public HomeController(ILogger<HomeController> logger)
-	{
-		_logger = logger;
-	}
-	public void Index()
-	{
-		_logger.LogInformation("This will get written to app.log via log4net.");
-	}
+    private readonly ILogger _logger;
+    public HomeController(ILogger<HomeController> logger)
+    {
+        _logger = logger;
+    }
+    public void Index()
+    {
+        _logger.LogInformation("This will get written to app.log via log4net.");
+    }
 }
 ```
