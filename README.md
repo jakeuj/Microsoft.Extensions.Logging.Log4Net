@@ -1,13 +1,16 @@
 # Microsoft.Extensions.Logging.Log4Net
 
-Microsoft.Extensions.Logging.Log4Net
+> [!WARNING]
+> **Legacy reference:** this project targets ASP.NET Core 1.1 and is not
+> presented as a currently maintained production package. Use it as historical
+> implementation material and evaluate supported logging integrations for new
+> applications.
 
-# Description
+## Description
 
 A couple of extension methods for adding log4net support to ASP.NET Core 1.1.
 
-# Usage
-
+## Usage
 
 ## 1. appsettings.json
 
