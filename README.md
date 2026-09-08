@@ -10,6 +10,35 @@
 
 A couple of extension methods for adding log4net support to ASP.NET Core 1.1.
 
+## Security maintenance
+
+The source now references log4net 2.0.17 to fix Dependabot alert #4
+([CVE-2018-1285](https://github.com/advisories/GHSA-2cwj-8chv-9pp9), XML external
+entity processing). The sample references the local project so it uses this fix
+instead of the previously published 1.0.0 package.
+
+This is a compatibility-preserving fix for the legacy .NET Core 1.1 target, not
+a complete security upgrade. Log4net 2.0.17 is still affected by alert #6
+([GHSA-4f7c-pmjv-c25w](https://github.com/advisories/GHSA-4f7c-pmjv-c25w)); fixing
+that requires log4net 3.3.0 or later and a framework migration. The old ASP.NET
+Core MVC and runtime dependencies also retain known vulnerabilities. Previously
+published NuGet packages are unchanged.
+
+Validation (requires the .NET 10 SDK for the smoke test):
+
+```sh
+dotnet build Microsoft.Extensions.Logging.Log4Net.sln -c Release
+dotnet run --project tests/SecuritySmoke -c Release
+dotnet list Microsoft.Extensions.Logging.Log4Net.sln package --vulnerable --include-transitive
+```
+
+The smoke test checks normal XML configuration/provider logging and verifies
+that an external XML entity cannot inject an appender. It runs the built library
+on .NET 10; it does not validate the sample on a .NET Core 1.1 runtime. Modern
+XML parser defaults also reject this payload with log4net 2.0.8, so this smoke
+test alone does not reproduce the historical vulnerability. The NuGet audit
+confirms removal of GHSA-2cwj-8chv-9pp9 from both projects' dependency graphs.
+
 ## Usage
 
 ## 1. appsettings.json
