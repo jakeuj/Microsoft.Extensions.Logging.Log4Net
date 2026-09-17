@@ -66,7 +66,7 @@ no vulnerable direct or transitive packages for either project.
 <?xml version="1.0" encoding="utf-8" ?>
 <log4net>
   <appender name="RollingFile" type="log4net.Appender.FileAppender">
-    <file type="log4net.Util.PatternString" value="%property{appRoot}\app.log" />
+    <file type="log4net.Util.PatternString" value="%property{appRoot}/app.log" />
     <layout type="log4net.Layout.PatternLayout">
       <conversionPattern value="%-5p %d{hh:mm:ss} %message%newline" />
     </layout>
