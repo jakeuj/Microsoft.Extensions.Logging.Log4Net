@@ -51,13 +51,21 @@ no vulnerable direct or transitive packages for either project.
     "Repository": "NETCoreRepository"
   },
   "Logging": {
-    "IncludeScopes": false,
     "LogLevel": {
       "Default": "Warning"
+    },
+    "Log4Net": {
+      "LogLevel": {
+        "Default": "Debug"
+      }
     }
   }
 }
 ```
+
+`Logging:LogLevel` is the global filter applied to every provider. The `Logging:Log4Net`
+section (the provider alias) lets log4net receive everything down to `Debug` while other
+providers keep the `Warning` floor; the final level is then decided by `log4net.xml`.
 
 ## 2. log4net.xml
 
