@@ -4,8 +4,8 @@ using log4net.Config;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Log4Net;
 
-// Exercise the library built for netcoreapp1.1 on an available modern runtime.
-// This is not a runtime compatibility test for the legacy ASP.NET Core sample.
+// Exercise the netstandard2.0 library on a modern runtime.
+// This does not exercise the ASP.NET Core sample; run the Sample project for that.
 var directory = Path.Combine(Path.GetTempPath(), "log4net-security-" + Guid.NewGuid());
 Directory.CreateDirectory(directory);
 var repository = LogManager.CreateRepository(Guid.NewGuid().ToString());

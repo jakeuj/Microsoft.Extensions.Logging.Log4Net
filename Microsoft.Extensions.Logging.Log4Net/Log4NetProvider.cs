@@ -2,6 +2,7 @@
 
 namespace Microsoft.Extensions.Logging.Log4Net
 {
+    [ProviderAlias("Log4Net")]
     public class Log4NetProvider : ILoggerProvider
     {
         private readonly string _repository;
